@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Helpdesk Lite | Ticket Tracker</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header><div><p class="eyebrow">SUPPORT OPERATIONS</p><h1>Helpdesk <span>Lite</span></h1><p class="sub">A clean, simple ticket management dashboard.</p></div><div class="logo">HL</div></header>
+    <section class="stats" aria-label="Ticket summary">
+      <article><p>Total tickets</p><strong id="total">0</strong></article>
+      <article><p>Open</p><strong id="open">0</strong></article>
+      <article><p>In progress</p><strong id="progress">0</strong></article>
+      <article><p>Resolved</p><strong id="resolved">0</strong></article>
+    </section>
+    <main class="layout">
+      <section class="panel form-panel"><h2>Create a ticket</h2><p class="muted">Log a new customer issue.</p>
+        <form id="ticket-form">
+          <label for="title">Issue title</label><input id="title" name="title" maxlength="120" required placeholder="e.g. Unable to sign in">
+          <label for="description">Description</label><textarea id="description" name="description" maxlength="2000" rows="5" placeholder="What happened?"></textarea>
+          <label for="priority">Priority</label><select id="priority" name="priority"><option>Low</option><option selected>Medium</option><option>High</option></select>
+          <button class="primary" type="submit">+ Create ticket</button>
+        </form>
+      </section>
+      <section class="panel tickets-panel"><div class="section-top"><div><h2>Tickets</h2><p class="muted">Track and resolve requests.</p></div><select id="filter" aria-label="Filter tickets"><option value="All">All statuses</option><option>Open</option><option>In Progress</option><option>Resolved</option></select></div>
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+        <div id="tickets" class="ticket-list"></div>
+      </section>
+    </main>
+    <footer>Built with Python, Flask, SQLite, HTML, CSS &amp; JavaScript</footer>
+  </div>
+</body>
+</html>
